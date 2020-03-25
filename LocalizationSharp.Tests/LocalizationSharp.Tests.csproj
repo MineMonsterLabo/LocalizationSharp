@@ -4,7 +4,7 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{A77F006B-5C59-4F6C-8F82-F9D61184DE43}</ProjectGuid>
+        <ProjectGuid>{468DF9F3-7C90-472A-B47F-3300F266855E}</ProjectGuid>
         <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -47,8 +47,11 @@
         <Compile Include="UseLocalizeFileTests.cs" />
     </ItemGroup>
     <ItemGroup>
+      <None Include="packages.config" />
+    </ItemGroup>
+    <ItemGroup>
       <ProjectReference Include="..\LocalizationSharp\LocalizationSharp.csproj">
-        <Project>{a5dc3b29-163a-4e60-a6e4-6453db23be5d}</Project>
+        <Project>{178b1f59-5afd-453e-8c2b-ea1b58d85131}</Project>
         <Name>LocalizationSharp</Name>
       </ProjectReference>
     </ItemGroup>
