@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationSharp", "Locali
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationSharp.Tests", "LocalizationSharp.Tests\LocalizationSharp.Tests.csproj", "{468DF9F3-7C90-472A-B47F-3300F266855E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationSharp.CodeGenerator", "LocalizationSharp.CodeGenerator\LocalizationSharp.CodeGenerator.csproj", "{99C8AFB3-5849-4984-B769-A85CAAAA4672}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{468DF9F3-7C90-472A-B47F-3300F266855E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{468DF9F3-7C90-472A-B47F-3300F266855E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{468DF9F3-7C90-472A-B47F-3300F266855E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99C8AFB3-5849-4984-B769-A85CAAAA4672}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99C8AFB3-5849-4984-B769-A85CAAAA4672}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99C8AFB3-5849-4984-B769-A85CAAAA4672}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99C8AFB3-5849-4984-B769-A85CAAAA4672}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

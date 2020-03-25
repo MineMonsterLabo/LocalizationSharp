@@ -10,14 +10,19 @@ namespace LocalizationSharp.Extension.SystemObject
             return LocalizationManager.Instance.GetFile()[key];
         }
 
+        public static T Localize<T>(this object value, string key) where T : ILocalizeContent<object>
+        {
+            return (T) Localize(value, key);
+        }
+
         public static string LocalizeText(this object value, string key)
         {
             return Localize<LocalizeTextContent>(value, key).Content;
         }
 
-        public static T Localize<T>(this object value, string key) where T : ILocalizeContent<object>
+        public static T LocalizeContent<T>(this object value, string key)
         {
-            return (T) Localize(value, key);
+            return (T) Localize(value, key).Content;
         }
     }
 }

@@ -45,7 +45,7 @@ namespace LocalizationSharp
             _fileLoadFunctions[extension] = func;
         }
 
-        public Dictionary<CultureInfo, ILocalizeFile> _files = new Dictionary<CultureInfo, ILocalizeFile>();
+        private Dictionary<CultureInfo, ILocalizeFile> _files = new Dictionary<CultureInfo, ILocalizeFile>();
         public CultureInfo CultureInfo { get; set; }
 
         public LocalizationManager()
@@ -71,6 +71,19 @@ namespace LocalizationSharp
         {
             ILocalizeFile file = null;
             string data = File.ReadAllText(filePath, Encoding.UTF8);
+            file = _fileLoadFunctions[extension](data);
+
+            if (file == null)
+                throw new IOException("ファイルが読み込めませんでした");
+
+            _files.Add(file.CultureInfo, file);
+
+            return file;
+        }
+
+        public ILocalizeFile LoadFileFromData(string data, string extension)
+        {
+            ILocalizeFile file = null;
             file = _fileLoadFunctions[extension](data);
 
             if (file == null)
