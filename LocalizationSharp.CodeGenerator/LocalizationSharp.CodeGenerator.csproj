@@ -5,6 +5,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.CodeAnalysis" Version="3.4.0" />
+    </ItemGroup>
+
+    <ItemGroup>
       <ProjectReference Include="..\LocalizationSharp\LocalizationSharp.csproj" />
     </ItemGroup>
 
