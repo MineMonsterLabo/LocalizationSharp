@@ -4,3 +4,5 @@ obj/
 
 .idea/
 /.vs/LocalizationSharp/v16
+/.vs/LocalizationSharp/DesignTimeBuild
+*.user
