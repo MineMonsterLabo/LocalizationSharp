@@ -49,6 +49,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateContentDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateContentDialog.Designer.cs">
+      <DependentUpon>CreateContentDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="DockPanels\LocalizeContentEditorPanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CreateContentDialog.resx">
+      <DependentUpon>CreateContentDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockPanels\LocalizeContentEditorPanel.resx">
       <DependentUpon>LocalizeContentEditorPanel.cs</DependentUpon>
     </EmbeddedResource>

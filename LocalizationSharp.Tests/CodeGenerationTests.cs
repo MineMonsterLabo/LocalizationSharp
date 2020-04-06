@@ -21,7 +21,7 @@ namespace LocalizationSharp.Tests
         {
             Directory.CreateDirectory("LocalizeFiles");
 
-            LocalizationManager.CreateSingletonInstance("LocalizeFiles", new CultureInfo("ja-JP"));
+            LocalizationManager.CreateSingletonInstance("LocalizeFiles", new CultureInfo("ja-JP"), true);
             Assert.True(this.LocalizeText("testLocalize.text") == "Hello LocalizationSharp!");
 
             Console.WriteLine(LocalizationCodeGenerator.Generate(new LocalizationCodeGenerator.CodeGenerateOptions

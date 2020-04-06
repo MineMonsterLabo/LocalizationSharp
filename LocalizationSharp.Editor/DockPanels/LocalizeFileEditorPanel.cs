@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LocalizationSharp.Contents;
 using LocalizationSharp.Core;
 using WeifenLuo.WinFormsUI.Docking;
 
@@ -32,7 +33,7 @@ namespace LocalizationSharp.Editor.DockPanels
 
             foreach (KeyValuePair<string, ILocalizeContent<object>> pair in _file)
             {
-                dataGridView1.Rows.Add(pair.Key);
+                dataGridView1.Rows.Add(pair.Key, pair.Value, "変更");
             }
         }
 
@@ -43,7 +44,41 @@ namespace LocalizationSharp.Editor.DockPanels
 
             string value = (string) cell.Value;
             if (value != null)
-                LocalizeContentEditorPanel.ShowPanel(DockPanel, _file[value]);
+                LocalizeContentEditorPanel.ShowPanel(DockPanel, value, (ILocalizeContent<object>) row.Cells[1].Value);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+            DataGridViewTextBoxCell cell = (DataGridViewTextBoxCell) row.Cells[0];
+
+            string value = (string) cell.Value;
+            if (value != null && e.ColumnIndex == 2)
+            {
+                CreateContentDialog dialog = new CreateContentDialog(row.Cells[1].Value as ILocalizeContent<object>);
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    row.Cells[1].Value = dialog.Content;
+
+                    dataGridView1_SelectionChanged(this, EventArgs.Empty);
+                }
+            }
+        }
+
+        private void dataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        {
+            e.Row.Cells[1].Value = new LocalizeTextContent();
+        }
+
+        public void Save()
+        {
+            _file.Clear();
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[0].Value is string key)
+                    _file[key] = row.Cells[1].Value as ILocalizeContent<object>;
+            }
         }
     }
 }

@@ -16,7 +16,7 @@ namespace LocalizationSharp.Editor.DockPanels
     {
         private static LocalizeContentEditorPanel _panel;
 
-        public static void ShowPanel(DockPanel panel, ILocalizeContent<object> content)
+        public static void ShowPanel(DockPanel panel, string key, ILocalizeContent<object> content)
         {
             if (_panel == null)
             {
@@ -24,6 +24,7 @@ namespace LocalizationSharp.Editor.DockPanels
                 _panel.Show(panel, DockState.DockRight);
             }
 
+            _panel.Text = key;
             _panel.SelectContent(content);
         }
 
