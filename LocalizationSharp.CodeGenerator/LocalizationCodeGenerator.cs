@@ -183,7 +183,7 @@ namespace LocalizationSharp.CodeGenerator
             public Type ExtensionType { get; set; } = typeof(object);
 
             /// <summary>
-            /// 生成されるコードに追加の 'using' を挿入します。 
+            /// 生成されるコードに追加の 'using' を挿入 
             /// </summary>
             public string[] AdditionalUsing { get; set; } = new string[0];
 
@@ -197,6 +197,9 @@ namespace LocalizationSharp.CodeGenerator
             /// </summary>
             public GenerateMemberMode GenerateMemberMode { get; set; }
 
+            /// <summary>
+            /// '@' マークを利用してコードを一意にする
+            /// </summary>
             public bool UseFirstAtChar { get; set; }
         }
 

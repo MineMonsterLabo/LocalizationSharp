@@ -101,7 +101,7 @@ namespace LocalizationSharp.Files
         public ICollection<string> Keys => _contents.Keys;
         public ICollection<ILocalizeContent<object>> Values => _contents.Values;
 
-        public void Save(string filePath)
+        public void Save(string folderPath)
         {
             JsonLocalizeFileData data = new JsonLocalizeFileData(_cultureInfo, _contents);
             string json = JsonConvert.SerializeObject(data, Formatting.Indented, new JsonSerializerSettings
@@ -110,7 +110,7 @@ namespace LocalizationSharp.Files
                 TypeNameHandling = TypeNameHandling.All
             });
 
-            File.WriteAllText(filePath, json, Encoding.UTF8);
+            File.WriteAllText($"{folderPath}/{CultureInfo.Name}.json_lang", json, Encoding.UTF8);
         }
 
         public class JsonLocalizeFileData

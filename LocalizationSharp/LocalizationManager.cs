@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text;
 using LocalizationSharp.Core;
 using LocalizationSharp.Files;
@@ -30,9 +31,10 @@ namespace LocalizationSharp
             });
         }
 
-        public static LocalizationManager CreateSingletonInstance(string localizeFileDirectory, CultureInfo cultureInfo)
+        public static LocalizationManager CreateSingletonInstance(string localizeFileDirectory, CultureInfo cultureInfo,
+            bool forceCreate)
         {
-            if (Instance != null)
+            if (!forceCreate && Instance != null)
                 throw new InvalidOperationException("インスタンスは既に作成されています。");
 
             Instance = new LocalizationManager(localizeFileDirectory, cultureInfo);
@@ -102,6 +104,11 @@ namespace LocalizationSharp
         public ILocalizeFile GetFile(string cultureName)
         {
             return _files[CultureInfo.GetCultureInfo(cultureName)];
+        }
+
+        public ILocalizeFile[] GetFiles()
+        {
+            return _files.Values.ToArray();
         }
     }
 }

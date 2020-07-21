@@ -7,6 +7,6 @@ namespace LocalizationSharp.Core
     {
         CultureInfo CultureInfo { get; }
 
-        void Save(string filePath);
+        void Save(string folderPath);
     }
 }

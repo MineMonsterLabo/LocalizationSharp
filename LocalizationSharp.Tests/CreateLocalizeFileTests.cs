@@ -34,7 +34,7 @@ namespace LocalizationSharp.Tests
                 {"testLocalize.text9", new LocalizeTextContent("Hello LocalizationSharp!")},
                 {"testLocalize.text10", new LocalizeTextContent("Hello LocalizationSharp!")},
             };
-            file.Save($"LocalizeFiles/{file.CultureInfo.Name}.json_lang");
+            file.Save($"LocalizeFiles");
         }
     }
 }
