@@ -18,7 +18,7 @@ namespace LocalizationSharp.Editor.DockPanels
 
         public static void ShowPanel(DockPanel panel, string key, ILocalizeContent<object> content)
         {
-            if (_panel == null)
+            if (_panel == null || _panel.IsDisposed)
             {
                 _panel = new LocalizeContentEditorPanel();
                 _panel.Show(panel, DockState.DockRight);
